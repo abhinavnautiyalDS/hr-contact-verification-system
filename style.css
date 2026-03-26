@@ -67,7 +67,81 @@ body {
 }
 
 
+.hero-actions{
+  margin-top:20px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
 
+.cta{
+  padding:12px 20px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.cta.primary{
+  background:#00aaff;
+  color:#fff;
+}
+
+.cta.secondary{
+  border:1px solid #00aaff;
+  color:#00aaff;
+}
+
+
+.intro-points{
+  list-style:none;
+  padding:0;
+}
+
+.intro-points li{
+  margin-bottom:10px;
+  opacity:0.9;
+}
+
+
+.tech-stack{
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:center;
+ gap:6px;
+ margin-bottom:10px;
+}
+
+.tech-stack span{
+ background:#0f1430;
+ padding:4px 8px;
+ border-radius:6px;
+ font-size:12px;
+}
+
+.project:hover{
+ transform:translateY(-8px) scale(1.02);
+}
+
+
+@media(max-width:600px){
+
+.project{
+ padding:16px;
+}
+
+.project-meta{
+ font-size:13px;
+}
+
+.hero h1{
+ font-size:28px;
+}
+
+.hero h2{
+ font-size:16px;
+}
+
+}
 
 
 /* Introduc*/
