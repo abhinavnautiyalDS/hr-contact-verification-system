@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeModal = document.querySelector(".close");
 
     if (modal && openBtn) {
+        
         openBtn.addEventListener("click", () => {
             modal.style.display = "flex";
         });
