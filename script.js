@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeModal = document.querySelector(".close");
 
     if (modal && openBtn) {
-        
         openBtn.addEventListener("click", () => {
             modal.style.display = "flex";
         });
@@ -33,16 +32,46 @@ document.addEventListener("DOMContentLoaded", () => {
     const introContents = document.querySelectorAll(".intro-content");
     tabs.forEach(tab => {
         tab.addEventListener("click", () => {
-            // Remove active class from all tabs
             tabs.forEach(t => t.classList.remove("active"));
             tab.classList.add("active");
-            // Hide all content
             introContents.forEach(c => c.classList.remove("active"));
-            // Show the selected content
             const targetId = tab.dataset.tab + "-content";
             document.getElementById(targetId)?.classList.add("active");
         });
     });
+
+    // Section filters (show/hide sections)
+    const sectionFilters = document.querySelectorAll(".section-filter");
+    const sections = {
+        skills: document.getElementById("skills-section"),
+        experience: document.getElementById("experience-section"),
+        education: document.getElementById("education-section"),
+        projects: document.getElementById("projects-section")
+    };
+
+    function updateSectionVisibility() {
+        sectionFilters.forEach(btn => {
+            const sectionName = btn.dataset.section;
+            const section = sections[sectionName];
+            if (section) {
+                if (btn.classList.contains("active")) {
+                    section.style.display = "block";
+                } else {
+                    section.style.display = "none";
+                }
+            }
+        });
+    }
+
+    sectionFilters.forEach(btn => {
+        btn.addEventListener("click", () => {
+            btn.classList.toggle("active");
+            updateSectionVisibility();
+        });
+    });
+
+    // Initially all sections visible (already set by CSS)
+    updateSectionVisibility();
 
     // Project filters
     const filters = document.querySelectorAll(".filter");
@@ -50,14 +79,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     filters.forEach(filter => {
         filter.addEventListener("click", () => {
-            // Update active filter
             filters.forEach(f => f.classList.remove("active"));
             filter.classList.add("active");
 
             const category = filter.dataset.category;
             projects.forEach(project => {
                 if (category === "all" || project.dataset.category === category) {
-                    project.style.display = "flex"; // restore display
+                    project.style.display = "flex";
                 } else {
                     project.style.display = "none";
                 }
