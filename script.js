@@ -169,15 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    function copyEmail() {
-    const email = "abhinavnautiyal96@gmail.com";
 
-    navigator.clipboard.writeText(email).then(() => {
-        alert("Mail ID copied!");
-    }).catch(err => {
-        console.error("Failed to copy: ", err);
-    });
-}
 
     // ========================
     // PARTICLE CANVAS (floating blue dots)
@@ -233,3 +225,13 @@ document.addEventListener("DOMContentLoaded", () => {
     drawParticles();
 
 });
+
+    function copyEmail() {
+    const email = "abhinavnautiyal96@gmail.com";
+
+    navigator.clipboard.writeText(email).then(() => {
+        alert("Mail ID copied!");
+    }).catch(err => {
+        console.error("Failed to copy: ", err);
+    });
+}
