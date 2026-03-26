@@ -226,12 +226,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-    function copyEmail() {
+function copyEmail(event) {
+    event.preventDefault();   // stop page jump
+
     const email = "abhinavnautiyal96@gmail.com";
 
     navigator.clipboard.writeText(email).then(() => {
         alert("Mail ID copied!");
-    }).catch(err => {
-        console.error("Failed to copy: ", err);
+    }).catch(() => {
+        alert("Failed to copy email.");
     });
 }
