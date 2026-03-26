@@ -1,7 +1,5 @@
 // Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", () => {
-
-    
     // Modal handling
     const modal = document.getElementById("cert-modal");
     const openBtn = document.getElementById("open-cert-modal");
